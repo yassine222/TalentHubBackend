@@ -11,7 +11,7 @@ const app = express()
 // const port = 9090
 const dbName = "talenthubdb"
 const db_url = `mongodb://127.0.0.1:27017`
-app.use(morgan('dev'))
+// app.use(morgan('dev'))
 app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true })) // to read req body ( x www form urlencoded )
