@@ -5,6 +5,7 @@ import cors from 'cors'
 import { errorHandler, notFoundError } from './Middlewares/error-handler.js'
 import talentRoutes from './routes/talentRoutes.js'
 import dotenv from 'dotenv'
+import bodyParser from 'body-parser'
 
 const app = express()
 
@@ -12,9 +13,9 @@ const app = express()
 const dbName = "talenthubdb"
 const db_url = `mongodb://127.0.0.1:27017`
 // app.use(morgan('dev'))
-app.use(cors())
-app.use(express.json())
-app.use(express.urlencoded({ extended: true })) // to read req body ( x www form urlencoded )
+// app.use(cors())
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/img', express.static("public/images")) // static directory for files
 
 app.use('/talent', talentRoutes)
